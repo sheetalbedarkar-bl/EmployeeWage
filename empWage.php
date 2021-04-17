@@ -1,13 +1,15 @@
 <?php
-    $empCheck = (rand(0, 1));
+    $empCheck = (rand(0, 2));
+    $empRatePerHr = 20;
     if ($empCheck == 1) {
-        $empRatePerHr = 20;
         $empHrs = 8;
-        $salary = $empRatePerHr * $empHrs;
-        echo $salary;
+    }
+    elseif ($empCheck == 2) {
+        $empHrs = 4;
     }
     else {
-        $salary = 0;
-        echo $salary;
+        $empHrs = 0;
     }
+    $salary = $empRatePerHr * $empHrs;
+    echo $salary;
 ?>
