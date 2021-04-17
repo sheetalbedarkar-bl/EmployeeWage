@@ -5,9 +5,7 @@
     $totalWorkingDays=0;
     $totalEmpHrs=0;
 
-    while ($totalEmpHrs < $maxHrsInMonth and $totalWorkingDays < $numWorkingDays) {
-        $totalWorkingDays++;
-        $empCheck = (rand(0, 2));
+    function getWorkingHrs($empCheck) {
         switch ($empCheck) {
             case 1:
                 $empHrs = 8;
@@ -18,7 +16,12 @@
             default:
                 $empHrs = 0;
         }
-        $totalEmpHrs = $totalEmpHrs + $empHrs;
+        return $empHrs;
+    }
+    while ($totalEmpHrs < $maxHrsInMonth and $totalWorkingDays < $numWorkingDays) {
+        $totalWorkingDays++;
+        $workHrs = getWorkingHrs(rand(0, 2));
+        $totalEmpHrs = $totalEmpHrs + $workHrs;
     }
     $totalSalary = $totalEmpHrs * $empRatePerHr;
     echo "Total Salary is : $totalSalary";
