@@ -1,9 +1,12 @@
 <?php
     $empRatePerHr = 20;
     $numWorkingDays=20;
-    $totalSalary=0;
+    $maxHrsInMonth=50;
+    $totalWorkingDays=0;
+    $totalEmpHrs=0;
 
-    for ($day = 1; $day <= 20; $day++) {
+    while ($totalEmpHrs < $maxHrsInMonth and $totalWorkingDays < $numWorkingDays) {
+        $totalWorkingDays++;
         $empCheck = (rand(0, 2));
         switch ($empCheck) {
             case 1:
@@ -15,8 +18,8 @@
             default:
                 $empHrs = 0;
         }
-    $salary = $empRatePerHr * $empHrs;
-    $totalSalary = $totalSalary + $salary;
+        $totalEmpHrs = $totalEmpHrs + $empHrs;
     }
+    $totalSalary = $totalEmpHrs * $empRatePerHr;
     echo "Total Salary is : $totalSalary";
 ?>
