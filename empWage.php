@@ -1,9 +1,13 @@
 <?php
     $empCheck = (rand(0, 1));
     if ($empCheck == 1) {
-        echo "Employee is present";
+        $empRatePerHr = 20;
+        $empHrs = 8;
+        $salary = $empRatePerHr * $empHrs;
+        echo $salary;
     }
     else {
-        echo "Employee is absent";
+        $salary = 0;
+        echo $salary;
     }
 ?>
